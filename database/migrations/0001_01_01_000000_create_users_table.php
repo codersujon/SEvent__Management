@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('zip')->nullable();
             $table->string('token')->nullable();
-            $table->string('status')->default(0)->comment('0=pending, 1=active, 2=suspended');
+            $table->string('token')->default(0)->comment('0=pending, 1=active, 2=suspended');
             $table->timestamps();
         });
 
