@@ -3,13 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Front\FrontController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+## FRONTEND
+Route::get('/', [FrontController::class, 'home'])->name('home');
+Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 
+
+## ADMIN
 Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
     Route::post('/profile', [AdminAuthController::class, 'profile_submit'])->name('admin_profile_submit');
