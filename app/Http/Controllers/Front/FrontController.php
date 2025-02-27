@@ -61,8 +61,16 @@ class FrontController extends Controller
     /**
      * Registration Verify
      */
-    public function registration_verify(){
+    public function registration_verify($token, $email){
+       $user =  User::where('token', $token)->where('email', $email)->first();
+       if(!$user){
+            return redirect()->route('login');
+       }
+       $user->token = "";
+       $user->status = 1;
+       $user->update();
 
+       return redirect()->route('login')->with('success', 'Your email is verified. You can login now.');
     }
 
     /**
