@@ -10,6 +10,7 @@
 <script src="{{ asset('dist-front') }}/js/jquery.countdown.min.js"></script> 
 <script src="{{ asset('dist-front') }}/js/jquery.scrollTo.js"></script> 
 <script src="{{ asset('dist-front') }}/js/typed.js"></script>  
+<script src="{{ asset('dist') }}/js/iziToast.min.js"></script>
 <script src="{{ asset('dist-front') }}/js/custom.js"></script>
 <script>
     $(".countDown").downCount({

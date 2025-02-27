@@ -39,7 +39,7 @@
                         </li>
                         <li class="member-login-button">
                             <div class="inner">
-                                <a class="smooth-scroll nav-link" href="login.html">
+                                <a class="smooth-scroll nav-link" href="{{ route('login') }}">
                                     <i class="fa fa-sign-in"></i> Login
                                 </a>
                             </div>
