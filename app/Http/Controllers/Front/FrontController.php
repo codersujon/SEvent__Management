@@ -130,6 +130,60 @@ class FrontController extends Controller
         return view('attendee.profile');
     }
 
+    /**
+     * Profile Submit
+     */
+    public function profile_submit(Request $request){
+
+         # VALIDATION
+         $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'phone' => ['required'],
+            'address' => ['required'],
+            'country' => ['required'],
+            'state' => ['required'],
+            'city' => ['required'],
+            'zip' => ['required'],
+        ]);
+
+        $user = User::where('id', Auth::guard('web')->user()->id)->first();
+
+        if($request->photo){
+            $request->validate([
+                'photo' => ['mimes:jpg, jpeg, png, gif', 'max:10240'],
+            ]);
+            $final_name = 'user_'.time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('uploads'), $final_name);
+            
+            if($user->photo != ""){
+                @unlink(public_path('uploads/'.$user->photo));
+            }
+           
+            $user->photo = $final_name;
+        }
+
+        if($request->password){
+            $request->validate([
+                'password' => ['required'],
+                'confirm_password' => ['required', 'same:password'],
+            ]);
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->country = $request->country;
+        $user->state = $request->state;
+        $user->city = $request->city;
+        $user->zip = $request->zip;
+        $user->update();
+
+        return redirect()->back()->with('success', 'Profile is updated!');
+    }
+
 
     /**
      * Forget Password

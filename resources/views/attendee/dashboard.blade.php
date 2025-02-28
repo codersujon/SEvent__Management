@@ -36,35 +36,83 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>Name: </th>
-                                <td>Mister Smith</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->name != "")
+                                        {{ Auth::guard('web')->user()->name }}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>Email: </th>
-                                <td>smith@gmail.com</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->email != "")
+                                        {{ Auth::guard('web')->user()->email}}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>Phone: </th>
-                                <td>237-453-2264</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->phone != "")
+                                        {{ Auth::guard('web')->user()->phone}}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>Address: </th>
-                                <td>45 Sp Valley, NYC, USA</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->address != "")
+                                        {{ Auth::guard('web')->user()->address }}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>State: </th>
-                                <td>NYC</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->state != "")
+                                        {{ Auth::guard('web')->user()->state }}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>City: </th>
-                                <td>NYC</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->city != "")
+                                        {{ Auth::guard('web')->user()->city }}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>Country: </th>
-                                <td>USA</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->country != "")
+                                        {{ Auth::guard('web')->user()->country }}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <th>Zip Code: </th>
-                                <td>12873</td>
+                                <td>
+                                    @if(Auth::guard('web')->user()->zip != "")
+                                        {{ Auth::guard('web')->user()->zip }}
+                                    @else
+                                    ---
+                                    @endif
+                                </td>
                             </tr>
                         </table>
                     </div>

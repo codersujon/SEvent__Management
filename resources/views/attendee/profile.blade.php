@@ -31,11 +31,16 @@
                         </div>
                     </div>
                     <div class="col-lg-9">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('attendee_profile_submit') }}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="">Existing Photo:</label>
                                 <div>
-                                    <img src="{{ asset('dist-front') }}/images/attendee.jpg" alt="" class="w_150">
+                                    @if(Auth::guard('web')->user()->photo == '')
+                                        <img src="{{ asset('uploads//default.png') }}" alt="" class="w_150">
+                                    @else
+                                        <img src="{{ asset('uploads/'.Auth::guard('web')->user()->photo) }}" alt="" class="w_150">
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
@@ -48,13 +53,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Name *</label>
-                                        <input type="text" class="form-control" name="" value="Mister Smith">
+                                        <input type="text" class="form-control" name="name" value="{{ Auth::guard('web')->user()->name }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Email *</label>
-                                        <input type="text" class="form-control" name="" value="smith@gmail.com">
+                                        <input type="text" class="form-control" name="email" value="{{ Auth::guard('web')->user()->email }}">
                                     </div>
                                 </div>
                             </div>
@@ -62,13 +67,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Phone *</label>
-                                        <input type="text" class="form-control" name="" value="123-333-2222">
+                                        <input type="text" class="form-control" name="phone" value="{{ Auth::guard('web')->user()->phone }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Address *</label>
-                                        <input type="text" class="form-control" name="" value="45, Street Road">
+                                        <input type="text" class="form-control" name="address" value="{{ Auth::guard('web')->user()->address }}">
                                     </div>
                                 </div>
                             </div>
@@ -76,13 +81,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Country *</label>
-                                        <input type="text" class="form-control" name="" value="USA">
+                                        <input type="text" class="form-control" name="country" value="{{ Auth::guard('web')->user()->country }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">State *</label>
-                                        <input type="text" class="form-control" name="" value="NYC">
+                                        <input type="text" class="form-control" name="state" value="{{ Auth::guard('web')->user()->state }}">
                                     </div>
                                 </div>
                             </div>
@@ -90,13 +95,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">City *</label>
-                                        <input type="text" class="form-control" name="" value="NYC">
+                                        <input type="text" class="form-control" name="city" value="{{ Auth::guard('web')->user()->city }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Zip Code *</label>
-                                        <input type="text" class="form-control" name="" value="23455">
+                                        <input type="text" class="form-control" name="zip" value="{{ Auth::guard('web')->user()->zip }}">
                                     </div>
                                 </div>
                             </div>
@@ -104,13 +109,13 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Password</label>
-                                        <input type="password" class="form-control" name="">
+                                        <input type="password" class="form-control" name="password">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="">Confirm Password</label>
-                                        <input type="password" class="form-control" name="">
+                                        <input type="password" class="form-control" name="confirm_password">
                                     </div>
                                 </div>
                             </div>
