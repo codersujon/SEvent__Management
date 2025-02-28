@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Mail\Websitemail;
 
 class FrontController extends Controller
@@ -80,6 +81,53 @@ class FrontController extends Controller
         return view('front.login');
     }
 
+    /**
+     * Login Submit
+     */
+    public function login_submit(Request $request){
+        
+        # VALIDATION
+        $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
+        $check = $request->all();
+
+        $data = [
+            'email' => $check['email'],
+            'password' => $check['password'],
+            'status' => 1,
+        ];
+
+        if(Auth::guard('web')->attempt($data)){
+            return redirect()->route('attendee_dashboard')->with('success', 'You are logged in successfully!');
+        }else{
+            return redirect()->route('login')->with('error', 'The information you entered is incorrect! Please try again!');
+        }
+
+    }
+
+    /**
+     * Dashboard
+     */
+    public function dashboard(){
+        return view('attendee.dashboard');
+    }
    
+    /**
+     * Attendee Logout
+     */
+    public function logout(){
+        Auth::guard('web')->logout();
+        return redirect()->route('login')->with('success', 'Logout is successful!');
+    }
+
+    /**
+     * Attendee Profile
+     */
+    public function profile(){
+        return view('attendee.profile');
+    }
+
 }

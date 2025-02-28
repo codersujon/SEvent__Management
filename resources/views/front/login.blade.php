@@ -27,7 +27,7 @@
                     <div class="login-register-bg">
                         <div class="row">
                             <div class="col-lg-12 col-sm-12 col-xs-12">
-                                <form action="" class="registerd" method="post">
+                                <form action="{{ route('login_submit') }}" class="registerd" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <input class="form-control" name="email" placeholder="Email Address" type="text">

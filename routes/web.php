@@ -15,7 +15,17 @@ Route::get('/registration', [FrontController::class, 'registration'])->name('reg
 Route::post('/registration', [FrontController::class, 'registration_submit'])->name('registration_submit');
 Route::get('/registration-verify/{token}/{email}', [FrontController::class, 'registration_verify'])->name('registration_verify');
 Route::get('/login', [FrontController::class, 'login'])->name('login');
+Route::post('/login', [FrontController::class, 'login_submit'])->name('login_submit');
 
+
+
+## USER
+Route::middleware('auth')->prefix('attendee')->group(function(){
+    Route::get('/profile', [FrontController::class, 'profile'])->name('attendee_profile');
+    Route::post('/profile', [FrontController::class, 'profile_submit'])->name('attendee_profile_submit');
+    Route::get('/dashboard', [FrontController::class, 'dashboard'])->name('attendee_dashboard');
+    Route::get('/logout', [FrontController::class, 'logout'])->name('attendee_logout');
+});
 
 ## ADMIN
 Route::middleware('admin')->prefix('admin')->group(function(){
