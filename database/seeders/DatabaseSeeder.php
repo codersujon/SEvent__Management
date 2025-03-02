@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
 
         // $this->call([AdminSeeder::class]);
         // $this->call([HomeBannerSeeder::class]);
-        $this->call([HomeWelcomeSeeder::class]);
+        // $this->call([HomeWelcomeSeeder::class]);
+        $this->call([HomeCounterSeeder::class]);
 
         // User::factory()->create([
         //     'name' => 'Test User',
