@@ -42,7 +42,7 @@
                                     </div>
 
                                     <div class="mb-4">
-                                        <label class="form-label">Text *</label>
+                                        <label class="form-label">Text</label>
                                         <textarea name="text" id="text" cols="30" rows="5" class="form-control h_100" >{{ $home_banner->text }}</textarea>
                                     </div>
 
