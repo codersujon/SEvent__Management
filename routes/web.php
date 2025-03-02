@@ -7,6 +7,7 @@ use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminHomeBannerController;
+use App\Http\Controllers\Admin\AdminHomeWelcomeController;
 
 
 
@@ -42,6 +43,8 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin_dashboard');
     Route::get('/home-banner', [AdminHomeBannerController::class, 'index'])->name('admin_home_banner');
     Route::post('/home-banner', [AdminHomeBannerController::class, 'update'])->name('admin_home_banner_update');
+    Route::get('/home-welcome', [AdminHomeWelcomeController::class, 'index'])->name('admin_home_welcome');
+    Route::post('/home-welcome', [AdminHomeWelcomeController::class, 'update'])->name('admin_home_welcome_update');
 });
 
 Route::prefix('admin')->group(function(){

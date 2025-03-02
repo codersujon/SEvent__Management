@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\Websitemail;
 use App\Models\HomeBanner;
+use App\Models\HomeWelcome;
 
 class FrontController extends Controller
 {
@@ -17,7 +18,8 @@ class FrontController extends Controller
      */
     public function home(){
         $home_banner = HomeBanner::where('id', 1)->first();
-        return view('front.home', compact('home_banner'));
+        $home_welcome = HomeWelcome::where('id', 1)->first();
+        return view('front.home', compact('home_banner', 'home_welcome'));
     }
 
     /**
