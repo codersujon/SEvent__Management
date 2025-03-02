@@ -26,6 +26,7 @@ class HomeCounterSeeder extends Seeder
         $obj->item4_icon = "fa fa-th-list";
         $obj->item4_number = "12";
         $obj->item4_title = "Sponsors";
+        $obj->background = "counter.jpg";
         $obj->status = "show";
         $obj->save();
     }

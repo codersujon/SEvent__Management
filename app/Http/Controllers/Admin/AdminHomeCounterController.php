@@ -41,6 +41,16 @@ class AdminHomeCounterController extends Controller
 
         $home_counter = HomeCounter::where('id', 1)->first();
 
+        if($request->background){
+            $request->validate([
+                'background' => ['image', 'mimes: jpg,jpeg,png,gif', 'max:10240'],
+            ]);
+            $final_name = 'home_counter_'.time().'.'.$request->background->extension();
+            $request->background->move(public_path('uploads'), $final_name);
+            @unlink(public_path('uploads/'.$home_counter->background));
+            $home_counter->background = $final_name;
+        }
+
         $home_counter->item1_icon = $request->item1_icon;
         $home_counter->item1_number = $request->item1_number;
         $home_counter->item1_title = $request->item1_title;

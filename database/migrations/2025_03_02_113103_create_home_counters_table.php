@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('item4_icon');
             $table->string('item4_number');
             $table->string('item4_title');
+            $table->string('background');
             $table->string('status');
             $table->timestamps();
         });

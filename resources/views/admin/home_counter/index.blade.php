@@ -14,8 +14,22 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('admin_home_counter_update') }}" method="post">
+                                <form action="{{ route('admin_home_counter_update') }}" method="post" enctype="multipart/form-data">
                                     @csrf
+                                    <div class="mb-4">
+                                        <label class="form-label">Existing Background</label>
+                                        <div>
+                                            <img src="{{ asset('uploads/'.$home_counter->background) }}" alt="" class="w_200">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label">Change Background</label>
+                                        <img src="" alt="" class="w_100_p">
+                                        <div>
+                                            <input type="file"  name="background">
+                                        </div>
+                                    </div>
                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="mb-4">

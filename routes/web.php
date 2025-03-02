@@ -46,7 +46,7 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/home-welcome', [AdminHomeWelcomeController::class, 'index'])->name('admin_home_welcome');
     Route::post('/home-welcome', [AdminHomeWelcomeController::class, 'update'])->name('admin_home_welcome_update');
     Route::get('/home-counter', [AdminHomeCounterController::class, 'index'])->name('admin_home_counter');
-    Route::post('/home-welcome', [AdminHomeCounterController::class, 'update'])->name('admin_home_counter_update');
+    Route::post('/home-counter', [AdminHomeCounterController::class, 'update'])->name('admin_home_counter_update');
 });
 
 Route::prefix('admin')->group(function(){
