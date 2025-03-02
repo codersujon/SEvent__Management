@@ -15,31 +15,60 @@
                                     {!! $home_banner->text !!}
                                 </p>
                             @endif
-                            
+
+                            @php
+                                $dt = new DateTime();
+
+                                $d1 = $dt->createFromFormat('m/d/Y H:i:s', date('m/d/Y H:i:s'));; // Current date
+                                $d2 = $dt->createFromFormat('m/d/Y H:i:s', date($home_banner->event_date . ' ' . $home_banner->event_time)); // Future Date
+
+                                $interval = $d1->diff($d2);
+
+                                $days = $interval->days;
+                                    if(strlen($days) == 1){
+                                        $days = '0'.$days;
+                                    }
+
+                                $hours = $interval->h;
+                                    if(strlen($hours) == 1){
+                                        $hours = '0'.$hours;
+                                    }
+
+                                $minutes = $interval->i;
+                                    if(strlen($minutes) == 1){
+                                        $minutes = '0'.$minutes;
+                                    }
+                                $seconds = $interval->s;
+                                    if(strlen($seconds) == 1){
+                                        $seconds = '0'.$seconds;
+                                    }
+                            @endphp
+
+
                             <div class="counter-area">
                                 <div class="countDown clearfix">
                                     <div class="row count-down-bg">
                                         <div class="col-lg-3 col-sm-6 col-xs-12">
                                             <div class="single-count day">
-                                                <h1 class="days">46</h1>
+                                                <h1 class="days">{{ $days }}</h1>
                                                 <p class="days_ref">days</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-6 col-xs-12">
                                             <div class="single-count hour">
-                                                <h1 class="hours">09</h1>
+                                                <h1 class="hours">{{ $hours }}</h1>
                                                 <p class="hours_ref">hours</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-6 col-xs-12">
                                             <div class="single-count min">
-                                                <h1 class="minutes">55</h1>
+                                                <h1 class="minutes">{{ $minutes }}</h1>
                                                 <p class="minutes_ref">minutes</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-sm-6 col-xs-12">
                                             <div class="single-count second">
-                                                <h1 class="seconds">02</h1>
+                                                <h1 class="seconds">{{ $seconds }}</h1>
                                                 <p class="seconds_ref">seconds</p>
                                             </div>
                                         </div>
