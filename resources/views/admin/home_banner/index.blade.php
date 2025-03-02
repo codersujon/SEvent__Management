@@ -14,7 +14,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('admin_home_banner_update') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-4">
                                         <label class="form-label">Existing Background</label>

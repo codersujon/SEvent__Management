@@ -41,6 +41,7 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::post('/profile', [AdminAuthController::class, 'profile_submit'])->name('admin_profile_submit');
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin_dashboard');
     Route::get('/home-banner', [AdminHomeBannerController::class, 'index'])->name('admin_home_banner');
+    Route::post('/home-banner', [AdminHomeBannerController::class, 'update'])->name('admin_home_banner_update');
 });
 
 Route::prefix('admin')->group(function(){
