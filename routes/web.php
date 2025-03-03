@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminHomeBannerController;
 use App\Http\Controllers\Admin\AdminHomeWelcomeController;
 use App\Http\Controllers\Admin\AdminHomeCounterController;
+use App\Http\Controllers\Admin\AdminSpeakerController;
 
 
 
@@ -47,6 +48,7 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::post('/home-welcome', [AdminHomeWelcomeController::class, 'update'])->name('admin_home_welcome_update');
     Route::get('/home-counter', [AdminHomeCounterController::class, 'index'])->name('admin_home_counter');
     Route::post('/home-counter', [AdminHomeCounterController::class, 'update'])->name('admin_home_counter_update');
+    Route::get('/speaker/index', [AdminSpeakerController::class, 'index'])->name('admin_speaker_index');
 });
 
 Route::prefix('admin')->group(function(){
