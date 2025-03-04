@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\Websitemail;
+use App\Models\Speaker;
 use App\Models\HomeCounter;
 use App\Models\HomeWelcome;
 use App\Models\HomeBanner;
@@ -21,7 +22,8 @@ class FrontController extends Controller
         $home_banner = HomeBanner::where('id', 1)->first();
         $home_welcome = HomeWelcome::where('id', 1)->first();
         $home_counter = HomeCounter::where('id', 1)->first();
-        return view('front.home', compact('home_banner', 'home_welcome', 'home_counter'));
+        $speakers = Speaker::get()->take(4);
+        return view('front.home', compact('home_banner', 'home_welcome', 'home_counter', 'speakers'));
     }
 
     /**
@@ -255,5 +257,25 @@ class FrontController extends Controller
         $user->update();
 
         return redirect()->route('login')->with('success', 'Password reset is successful. You can login now');
+    }
+
+
+    /**
+     * Speakers
+     */
+    public function speakers(){
+        $speakers = Speaker::paginate(20);
+        return view('front.speakers', compact('speakers'));
+    }
+
+    /**
+     * Speaker
+     */
+    public function speaker($slug){
+        $speaker = Speaker::where('slug', $slug)->first();
+        if(!$speaker){
+            return redirect()->route('speakers')->with('error', "Invalid url");
+        }
+        return view('front.speaker', compact('speaker'));
     }
 }

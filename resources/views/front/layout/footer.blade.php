@@ -12,7 +12,7 @@
                                     <ul class="list">
                                         <li><a href="{{ route('home') }}">Home</a></li>
                                         <li><a href="sponsors.html">Sponsors</a></li>
-                                        <li><a href="speakers.html">Speakers</a></li>
+                                        <li><a href="{{ route('speakers') }}">Speakers</a></li>
                                         <li><a href="organizers.html">Organizers</a></li>
                                     </ul>
                                 </div>

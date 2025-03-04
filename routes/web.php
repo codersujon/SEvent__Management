@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\AdminSpeakerController;
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+Route::get('/speakers', [FrontController::class, 'speakers'])->name('speakers');
+Route::get('/speaker/{slug}', [FrontController::class, 'speaker'])->name('speaker');
 
 # USER LOGIN & REGISTRATION
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');

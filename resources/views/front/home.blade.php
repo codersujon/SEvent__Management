@@ -130,45 +130,21 @@
                     <div class="col-sm-1 col-lg-2"></div>
                 </div>
                 <div class="row pt_40">
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="team-img mb_20">
-                            <a href="speaker.html"><img src="{{ asset('dist-front') }}/images/speaker-1.jpg"></a>
+                    @foreach($speakers as $speaker)
+                        <div class="col-lg-3 col-sm-6 col-xs-12">
+                            <div class="team-img mb_20">
+                                <a href="{{ route('speaker', $speaker->slug) }}"><img src="{{ asset('uploads/'.$speaker->photo) }}"></a>
+                            </div>
+                            <div class="team-info text-center">
+                                <h6><a href="{{ route('speaker', $speaker->slug) }}">{{ $speaker->name }}</a></h6>
+                                <p>{{ $speaker->designation }}</p>
+                            </div>
                         </div>
-                        <div class="team-info text-center">
-                            <h6><a href="speaker.html">Danny Allen</a></h6>
-                            <p>Founder, AA Company</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="team-img mb_20">
-                            <a href="speaker.html"><img src="{{ asset('dist-front') }}/images/speaker-2.jpg"></a>
-                        </div>
-                        <div class="team-info text-center">
-                            <h6><a href="speaker.html">John Sword</a></h6>
-                            <p>Founder, BB Company</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="team-img mb_20">
-                            <a href="speaker.html"><img src="{{ asset('dist-front') }}/images/speaker-3.jpg"></a>
-                        </div>
-                        <div class="team-info text-center">
-                            <h6><a href="speaker.html">Steven Gragg</a></h6>
-                            <p>Founder, CC Company</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="team-img mb_20">
-                            <a href="speaker.html"><img src="{{ asset('dist-front') }}/images/speaker-4.jpg"></a>
-                        </div>
-                        <div class="team-info text-center">
-                            <h6><a href="speaker.html">Jordan Parker</a></h6>
-                            <p>Founder, DD Company</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
+
         @if($home_counter->status == 'show')
         <div id="counter-section" class="pt_70 pb_70" style="background-image: url({{ asset('uploads/'.$home_counter->background) }});">
             <div class="container">
@@ -208,6 +184,7 @@
             </div>
         </div>
         @endif
+
         <div id="price-section" class="pt_70 pb_70 gray prices">
             <div class="container">
     
@@ -383,6 +360,4 @@
             </div>
         </div>
 
-
-        
 @endsection
