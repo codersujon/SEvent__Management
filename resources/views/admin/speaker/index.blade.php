@@ -38,8 +38,8 @@
                                                    <td>{{ $speaker->name }}</td>
                                                    <td>{{ $speaker->designation }}</td>
                                                    <td>
-                                                        <a href="" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_speaker_edit', $speaker->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin_speaker_delete', $speaker->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                    </td>
                                                 </tr>
                                             @endforeach

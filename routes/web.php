@@ -51,6 +51,9 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/speaker/index', [AdminSpeakerController::class, 'index'])->name('admin_speaker_index');
     Route::get('/speaker/create', [AdminSpeakerController::class, 'create'])->name('admin_speaker_create');
     Route::post('/speaker/store', [AdminSpeakerController::class, 'store'])->name('admin_speaker_store');
+    Route::get('/speaker/edit/{id}', [AdminSpeakerController::class, 'edit'])->name('admin_speaker_edit');
+    Route::post('/speaker/update/{id}', [AdminSpeakerController::class, 'update'])->name('admin_speaker_update');
+    Route::get('/speaker/delete/{id}', [AdminSpeakerController::class, 'destroy'])->name('admin_speaker_delete');
 });
 
 Route::prefix('admin')->group(function(){
