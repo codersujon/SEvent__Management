@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('speakers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug');
             $table->string('designation');
             $table->string('photo');
             $table->string('email')->unique();

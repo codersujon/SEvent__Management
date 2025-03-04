@@ -9,7 +9,7 @@
             <div class="section-header justify-content-between">
                 <h1>Speakers</h1>
                 <div class="section-header-button ">
-                    <a href="" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('admin_speaker_create') }}" class="btn btn-primary">Add New</a>
                 </div>
             </div>
             <div class="section-body">
