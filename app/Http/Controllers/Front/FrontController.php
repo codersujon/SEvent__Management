@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\Websitemail;
+use App\Models\ScheduleDay;
 use App\Models\Speaker;
 use App\Models\HomeCounter;
 use App\Models\HomeWelcome;
@@ -277,5 +278,13 @@ class FrontController extends Controller
             return redirect()->route('speakers')->with('error', "Invalid url");
         }
         return view('front.speaker', compact('speaker'));
+    }
+
+     /**
+     * Schedule
+     */
+    public function schedule(){
+        $schedule_days = ScheduleDay::orderBy('order1', 'ASC')->get();
+        return view('front.schedule', compact('schedule_days'));
     }
 }

@@ -18,6 +18,7 @@ Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::get('/speakers', [FrontController::class, 'speakers'])->name('speakers');
 Route::get('/speaker/{slug}', [FrontController::class, 'speaker'])->name('speaker');
+Route::get('/schedule', [FrontController::class, 'schedule'])->name('schedule');
 
 # USER LOGIN & REGISTRATION
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
