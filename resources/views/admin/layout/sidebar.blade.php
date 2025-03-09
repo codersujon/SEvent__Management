@@ -31,6 +31,8 @@
 
             <li class="{{ Request::is('admin/schedule-day/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_schedule_day_index') }}"><i class="fas fa-hand-point-right"></i> <span>Schedule Days</span></a></li>
 
+            <li class="{{ Request::is('admin/schedule/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_schedule_index') }}"><i class="fas fa-hand-point-right"></i> <span>Schedule</span></a></li>
+
         </ul>
     </aside>
 </div>

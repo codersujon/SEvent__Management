@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ScheduleDay extends Model
+class Schedule extends Model
 {
     use HasFactory;
 
-    public function schedules(){
-        return $this->hasMany(Schedule::class);
+    public function schedule_day(){
+        return $this->belongsTo(ScheduleDay::class);
     }
 }
