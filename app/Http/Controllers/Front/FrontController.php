@@ -281,10 +281,12 @@ class FrontController extends Controller
     }
 
      /**
-     * Schedule
+     * Schedule Day
      */
     public function schedule(){
-        $schedule_days = ScheduleDay::orderBy('order1', 'ASC')->get();
+        $schedule_days = ScheduleDay::with('schedules')->orderBy('order1', 'ASC')->get();
         return view('front.schedule', compact('schedule_days'));
     }
+
+    
 }
