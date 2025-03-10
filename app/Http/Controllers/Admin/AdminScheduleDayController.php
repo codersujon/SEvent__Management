@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Schedule;
 use App\Models\ScheduleDay;
 
 class AdminScheduleDayController extends Controller
@@ -91,6 +92,11 @@ class AdminScheduleDayController extends Controller
      */
     public function destroy($id)
     {
+        $check = Schedule::where('schedule_day_id', $id)->first();
+        if($check){
+            return redirect()->route('admin_schedule_day_index')->with('error', 'You can not delete this schedule day, because it has some schedules!');
+        }
+
         $schedule_day = ScheduleDay::where('id', $id)->first();
         $schedule_day->delete();
 
