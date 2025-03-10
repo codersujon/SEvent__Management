@@ -33,6 +33,8 @@
 
             <li class="{{ Request::is('admin/schedule/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_schedule_index') }}"><i class="fas fa-hand-point-right"></i> <span>Schedule</span></a></li>
 
+            <li class="{{ Request::is('admin/speaker-schedule/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_speaker_schedule_index') }}"><i class="fas fa-hand-point-right"></i> <span>Speaker Schedules</span></a></li>
+
         </ul>
     </aside>
 </div>

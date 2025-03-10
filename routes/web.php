@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\AdminHomeCounterController;
 use App\Http\Controllers\Admin\AdminSpeakerController;
 use App\Http\Controllers\Admin\AdminScheduleDayController;
 use App\Http\Controllers\Admin\AdminScheduleController;
+use App\Http\Controllers\Admin\AdminSpeakerScheduleController;
 
 
 ## FRONTEND
@@ -50,14 +51,19 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::post('/home-banner', [AdminHomeBannerController::class, 'update'])->name('admin_home_banner_update');
     Route::get('/home-welcome', [AdminHomeWelcomeController::class, 'index'])->name('admin_home_welcome');
     Route::post('/home-welcome', [AdminHomeWelcomeController::class, 'update'])->name('admin_home_welcome_update');
+    
+
     Route::get('/home-counter', [AdminHomeCounterController::class, 'index'])->name('admin_home_counter');
     Route::post('/home-counter', [AdminHomeCounterController::class, 'update'])->name('admin_home_counter_update');
+    
+    
     Route::get('/speaker/index', [AdminSpeakerController::class, 'index'])->name('admin_speaker_index');
     Route::get('/speaker/create', [AdminSpeakerController::class, 'create'])->name('admin_speaker_create');
     Route::post('/speaker/store', [AdminSpeakerController::class, 'store'])->name('admin_speaker_store');
     Route::get('/speaker/edit/{id}', [AdminSpeakerController::class, 'edit'])->name('admin_speaker_edit');
     Route::post('/speaker/update/{id}', [AdminSpeakerController::class, 'update'])->name('admin_speaker_update');
     Route::get('/speaker/delete/{id}', [AdminSpeakerController::class, 'destroy'])->name('admin_speaker_delete');
+
 
     Route::get('/schedule-day/index', [AdminScheduleDayController::class, 'index'])->name('admin_schedule_day_index');
     Route::get('/schedule-day/create', [AdminScheduleDayController::class, 'create'])->name('admin_schedule_day_create');
@@ -74,6 +80,9 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::post('/schedule/update/{id}', [AdminScheduleController::class, 'update'])->name('admin_schedule_update');
     Route::get('/schedule/delete/{id}', [AdminScheduleController::class, 'destroy'])->name('admin_schedule_delete');
     
+
+    Route::get('/speaker-schedule/index', [AdminSpeakerScheduleController::class, 'index'])->name('admin_speaker_schedule_index');
+    Route::post('/speaker-schedule/store', [AdminSpeakerScheduleController::class, 'store'])->name('admin_speaker_schedule_store');
 });
 
 Route::prefix('admin')->group(function(){
