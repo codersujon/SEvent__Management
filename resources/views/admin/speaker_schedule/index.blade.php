@@ -50,6 +50,53 @@
                     </div>
                 </div>
             </div>
+
+            <div class="section-header">
+                <h1>Speaker Schedules</h1>
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                   <table id="example1" class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>SL</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Schedule Title</th>
+                                                <th>Schedule Day</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($pivot_table_data as $row)
+                                                <tr>
+                                                   <td>{{ $loop->iteration }}</td>
+                                                   <td>{{ $row->speaker_name }}</td>
+                                                   <td>{{ $row->speaker_email }}</td>
+                                                   <td>{{ $row->schedule_title }}</td>
+                                                   <td>
+                                                       @php
+                                                            $day = DB::table('schedule_days')->where('id', $row->schedule_id)->first()->day;
+                                                            echo $day;
+                                                       @endphp
+                                                   </td>
+                                                   <td>
+                                                        <a href="{{ route('admin_speaker_schedule_destroy', $row->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                   </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                   </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 @endsection

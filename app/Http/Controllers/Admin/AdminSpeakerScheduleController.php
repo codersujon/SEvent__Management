@@ -17,7 +17,20 @@ class AdminSpeakerScheduleController extends Controller
     {
         $speakers = Speaker::orderBy('name', 'ASC')->get();
         $schedules = Schedule::with('schedule_day')->orderBy('id', 'ASC')->get();
-        return view('admin.speaker_schedule.index', compact('speakers', 'schedules'));
+
+        $pivot_table_data = DB::table('schedule_speakers')
+                                ->join('speakers', 'schedule_speakers.speaker_id', '=', 'speakers.id')
+                                ->join('schedules', 'schedule_speakers.schedule_id', '=', 'schedules.id')
+                                ->select(
+                                    'schedule_speakers.*',
+                                    'speakers.name as speaker_name',
+                                    'speakers.email as speaker_email',
+                                    'schedules.title as schedule_title',
+                                    'schedules.schedule_day_id as schedule_id',
+                                    )
+                                ->get();
+
+        return view('admin.speaker_schedule.index', compact('speakers', 'schedules', 'pivot_table_data'));
     }
 
     /**
@@ -41,5 +54,14 @@ class AdminSpeakerScheduleController extends Controller
         // $schedule->speakers()->attach($request->speaker_id);
 
         return redirect()->back()->with('success', 'Speaker added to schedule successfully!');
+    }
+
+    /**
+     * Destroy
+     */
+    public function destroy($id)
+    {
+        DB::table('schedule_speakers')->where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Speaker removed from schedule successfully!');
     }
 }

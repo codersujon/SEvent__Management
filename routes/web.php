@@ -44,6 +44,7 @@ Route::middleware('auth')->prefix('attendee')->group(function(){
 
 ## ADMIN
 Route::middleware('admin')->prefix('admin')->group(function(){
+
     Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
     Route::post('/profile', [AdminAuthController::class, 'profile_submit'])->name('admin_profile_submit');
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin_dashboard');
@@ -83,7 +84,10 @@ Route::middleware('admin')->prefix('admin')->group(function(){
 
     Route::get('/speaker-schedule/index', [AdminSpeakerScheduleController::class, 'index'])->name('admin_speaker_schedule_index');
     Route::post('/speaker-schedule/store', [AdminSpeakerScheduleController::class, 'store'])->name('admin_speaker_schedule_store');
+    Route::get('/speaker-schedule/delete/{id}', [AdminSpeakerScheduleController::class, 'destroy'])->name('admin_speaker_schedule_destroy');
+    
 });
+
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', [AdminAuthController::class, 'login'])->name('admin_login');
