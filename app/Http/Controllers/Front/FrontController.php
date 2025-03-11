@@ -277,7 +277,8 @@ class FrontController extends Controller
         if(!$speaker){
             return redirect()->route('speakers')->with('error', "Invalid url");
         }
-        return view('front.speaker', compact('speaker'));
+        $schedules = $speaker->schedules()->with('schedule_day')->get();
+        return view('front.speaker', compact('speaker', 'schedules'));
     }
 
      /**

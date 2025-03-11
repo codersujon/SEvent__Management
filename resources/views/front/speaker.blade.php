@@ -105,32 +105,31 @@
         
                             <h4>My Sessions</h4>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="speaker-img">
-                                        <img src="{{ asset('dist-front/images/day1_session1.jpg') }}">
-                                    </div>
-                                    <div class="speaker-box">
-                                        <h3>Introduction to PHP and Laravel</h3> 
-                                        <h4> 
-                                            <span>Tim Center, 34, Park Street, NYC, USA</span><br>
-                                            <span>Sep 20, 2024 (Day 1)</span><br>
-                                            <span>09:00 AM - 09:45 AM</span>
-                                        </h4>
-                                    </div>
+
+                            @if($schedules->isEmpty())
+                                <div class="col-md-12">
+                                    No Session found.
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="speaker-img">
-                                        <img src="{{ asset('dist-front/images/day3_session1.jpg') }}">
+                            @else
+
+                                @foreach($schedules as $schedule)
+                                    <div class="col-md-6">
+                                        <div class="speaker-img">
+                                            <img src="{{ asset('uploads/'.$schedule->photo) }}">
+                                        </div>
+                                        <div class="speaker-box">
+                                            <h3>{{ $schedule->title }}</h3> 
+                                            <h4> 
+                                                <span>{{ $schedule->location }}</span><br>
+                                                <span>{{ $schedule->schedule_day->date1 }} ({{ $schedule->schedule_day->day }})</span><br>
+                                                <span>{{ $schedule->time }}</span>
+                                            </h4>
+                                        </div>
                                     </div>
-                                    <div class="speaker-box">
-                                        <h3>User Experience (UX) Design Principles</h3> 
-                                        <h4> 
-                                            <span>Tim Center, 34, Park Street, NYC, USA</span><br>
-                                            <span>Sep 22, 2024 (Day 3)</span><br>
-                                            <span>10:00 AM - 10:30 AM</span>
-                                        </h4>
-                                    </div>
-                                </div>
+                                @endforeach
+
+                            @endif
+
                             </div>
                         </div>
                         
