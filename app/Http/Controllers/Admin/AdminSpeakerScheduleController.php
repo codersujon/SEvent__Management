@@ -39,6 +39,7 @@ class AdminSpeakerScheduleController extends Controller
     public function store(Request $request)
     {
         $check = DB::table('schedule_speakers')
+                    ->where('speaker_id', $request->speaker_id)
                     ->where('schedule_id', $request->schedule_id)
                     ->first();
 
