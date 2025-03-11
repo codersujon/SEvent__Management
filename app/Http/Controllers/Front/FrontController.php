@@ -13,6 +13,7 @@ use App\Models\Speaker;
 use App\Models\HomeCounter;
 use App\Models\HomeWelcome;
 use App\Models\HomeBanner;
+use App\Models\SponsorCategory;
 
 class FrontController extends Controller
 {
@@ -292,5 +293,12 @@ class FrontController extends Controller
         return view('front.schedule', compact('schedule_days'));
     }
 
+    /**
+     * Sponsor
+     */
+    public function sponsors(){
+        $sponsor_categories = SponsorCategory::get();
+        return view('front.sponsors', compact('sponsor_categories'));
+    }
     
 }

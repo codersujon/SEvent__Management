@@ -22,6 +22,7 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::get('/speakers', [FrontController::class, 'speakers'])->name('speakers');
 Route::get('/speaker/{slug}', [FrontController::class, 'speaker'])->name('speaker');
 Route::get('/schedule', [FrontController::class, 'schedule'])->name('schedule');
+Route::get('/sponsors', [FrontController::class, 'sponsors'])->name('sponsors');
 
 # USER LOGIN & REGISTRATION
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
