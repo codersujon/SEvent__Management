@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('sponsor_category_id')->constrained('sponsor_categories')->onDelete('cascade');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('tagline')->nullable();
-            $table->string('description')->nullable();
+            $table->string('tagline');
+            $table->text('description');
             $table->string('logo');
             $table->string('featured_photo');
             $table->string('address')->nullable();
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('map')->nullable();
+            $table->text('map')->nullable();
             $table->timestamps();
         });
     }
