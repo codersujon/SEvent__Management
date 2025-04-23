@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreSponsorRequest;
 use App\Models\Sponsor;
 use App\Models\SponsorCategory;
 
@@ -28,17 +29,10 @@ class AdminSponsorController extends Controller
     /**
      * Store
      */
-    public function store(Request $request){
-
+    public function store(StoreSponsorRequest $request){
+        
         # VALIDATION
-        $request->validate([
-            'name' => ['required'],
-            'slug' => ['required', 'alpha_dash', 'unique:sponsors,slug'],
-            'tagline' => ['required'],
-            'description' => ['required'],
-            'logo' => ['required', 'image', 'mimes:jpeg,png,gif,jpg', 'max:2048'],
-            'featured_photo' => ['required', 'image', 'mimes:jpeg,png,gif,jpg', 'max:2048'],
-        ]);
+        $data = $request->validated();
 
         # LOGO IMAGES
         $final_name_logo = 'sponsor_logo'.time().'.'.$request->logo->extension();
@@ -83,18 +77,13 @@ class AdminSponsorController extends Controller
     /**
      * Update
      */
-    public function update(Request $request, $id)
+    public function update(StoreSponsorRequest $request, $id)
     {
         $sponsor = Sponsor::where('id', $id)->first();
 
         # VALIDATION
-        $request->validate([
-            'name' => ['required'],
-            'slug' => ['required'],
-            'tagline' => ['required'],
-            'description' => ['required'],
-        ]);
-
+        $data = $request->validated();
+        
         if($request->logo){
             $request->validate([
                 'logo' => ['image', 'mimes:jpeg,png,gif,jpg', 'max:2048'],
