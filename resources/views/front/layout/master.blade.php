@@ -6,7 +6,7 @@
         
         <link rel="icon" type="image/png" href="{{ asset('dist-front') }}/images/favicon.png">
 
-        <title>SingleEvent - Event & Conference Management Website</title>
+        <title>Life Event</title>
 
         @include('front.layout.styles')
 
