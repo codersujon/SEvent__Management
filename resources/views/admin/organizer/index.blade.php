@@ -29,17 +29,17 @@
                                                 </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($organisers as $organiser)
+                                            @foreach($organizers as $organizer)
                                                 <tr>
                                                    <td>{{ $loop->iteration }}</td>
                                                    <td>
-                                                        <img src="{{ asset('uploads/'.$organiser->photo ) }}" alt="{{ $organiser->name }}" class="w_100">
+                                                        <img src="{{ asset('uploads/'.$organizer->photo ) }}" alt="{{ $organizer->name }}" class="w_100">
                                                    </td>
-                                                   <td>{{ $organiser->name }}</td>
-                                                   <td>{{ $organiser->designation }}</td>
+                                                   <td>{{ $organizer->name }}</td>
+                                                   <td>{{ $organizer->designation }}</td>
                                                    <td>
-                                                        <a href="{{ route('admin_organizer_edit', $organiser->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin_organizer_delete', $organiser->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                                        <a href="{{ route('admin_organizer_edit', $organizer->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin_organizer_delete', $organizer->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                                                    </td>
                                                 </tr>
                                             @endforeach

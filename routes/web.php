@@ -25,6 +25,9 @@ Route::get('/speaker/{slug}', [FrontController::class, 'speaker'])->name('speake
 Route::get('/schedule', [FrontController::class, 'schedule'])->name('schedule');
 Route::get('/sponsors', [FrontController::class, 'sponsors'])->name('sponsors');
 Route::get('/sponsor/{slug}', [FrontController::class, 'sponsor'])->name('sponsor');
+Route::get('/organizers', [FrontController::class, 'organizers'])->name('organizers');
+Route::get('/organizer/{slug}', [FrontController::class, 'organizer'])->name('organizer');
+
 
 # USER LOGIN & REGISTRATION
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
