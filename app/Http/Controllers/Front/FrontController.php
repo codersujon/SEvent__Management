@@ -17,6 +17,7 @@ use App\Models\SponsorCategory;
 use App\Models\Sponsor;
 use App\Models\Organiser;
 use App\Models\Accommodation;
+use App\Models\PhotoGallery;
 
 class FrontController extends Controller
 {
@@ -341,5 +342,13 @@ class FrontController extends Controller
     public function accommodations(){
         $accommodations = Accommodation::paginate(4);
         return view('front.accommodations', compact('accommodations'));
+    }
+
+     /**
+     * Photo Gallery
+     */
+    public function photo_gallery(){
+        $photo_galleries = PhotoGallery::paginate(6);
+        return view('front.photo_gallery', compact('photo_galleries'));
     }
 }

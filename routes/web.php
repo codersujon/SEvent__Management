@@ -30,6 +30,7 @@ Route::get('/sponsor/{slug}', [FrontController::class, 'sponsor'])->name('sponso
 Route::get('/organizers', [FrontController::class, 'organizers'])->name('organizers');
 Route::get('/organizer/{slug}', [FrontController::class, 'organizer'])->name('organizer');
 Route::get('/accommodations', [FrontController::class, 'accommodations'])->name('accommodations');
+Route::get('/photo-gallery', [FrontController::class, 'photo_gallery'])->name('photo_gallery');
 
 
 
