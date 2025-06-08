@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\AdminScheduleController;
 use App\Http\Controllers\Admin\AdminSpeakerScheduleController;
 use App\Http\Controllers\Admin\AdminSponsorCategoryController;
 use App\Http\Controllers\Admin\AdminSponsorController;
-
+use App\Http\Controllers\Admin\AdminOrganizerController;
 
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -25,6 +25,9 @@ Route::get('/speaker/{slug}', [FrontController::class, 'speaker'])->name('speake
 Route::get('/schedule', [FrontController::class, 'schedule'])->name('schedule');
 Route::get('/sponsors', [FrontController::class, 'sponsors'])->name('sponsors');
 Route::get('/sponsor/{slug}', [FrontController::class, 'sponsor'])->name('sponsor');
+Route::get('/organizers', [FrontController::class, 'organizers'])->name('organizers');
+Route::get('/organizer/{slug}', [FrontController::class, 'organizer'])->name('organizer');
+
 
 # USER LOGIN & REGISTRATION
 Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
@@ -106,7 +109,14 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::post('/sponsor/update/{id}', [AdminSponsorController::class, 'update'])->name('admin_sponsor_update');
     Route::get('/sponsor/delete/{id}', [AdminSponsorController::class, 'destroy'])->name('admin_sponsor_delete');
     
-    
+    # Organizer
+    Route::get('/organizer/index', [AdminOrganizerController::class, 'index'])->name('admin_organizer_index');
+    Route::get('/organizer/create', [AdminOrganizerController::class, 'create'])->name('admin_organizer_create');
+    Route::post('/organizer/store', [AdminOrganizerController::class, 'store'])->name('admin_organizer_store');
+    Route::get('/organizer/edit/{id}', [AdminOrganizerController::class, 'edit'])->name('admin_organizer_edit');
+    Route::post('/organizer/update/{id}', [AdminOrganizerController::class, 'update'])->name('admin_organizer_update');
+    Route::get('/organizer/delete/{id}', [AdminOrganizerController::class, 'destroy'])->name('admin_organizer_delete');
+
 });
 
 

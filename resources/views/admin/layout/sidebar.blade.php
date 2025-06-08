@@ -38,9 +38,15 @@
                 </ul>
             </li>
 
-            <li class="{{ Request::is('admin/sponsor-category/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_sponsor_category_index') }}"><i class="fas fa-hand-point-right"></i> <span>Sponsor Categories</span></a></li>
+            <li class="nav-item dropdown {{ Request::is('admin/sponsor-category/*') ? 'active' : '' }} || {{ Request::is('admin/sponsor/*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-hand-point-right"></i><span>Sponsor Section</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/sponsor-category/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_sponsor_category_index') }}"><i class="fas fa-angle-right"></i> Sponsor Categories</a></li>
+                    <li class="{{ Request::is('admin/sponsor/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_sponsor_index') }}"><i class="fas fa-angle-right"></i> Sponsor</a></li>
+                </ul>
+            </li>
 
-            <li class="{{ Request::is('admin/sponsor/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_sponsor_index') }}"><i class="fas fa-hand-point-right"></i> <span>Sponsor</span></a></li>
+            <li class="{{ Request::is('admin/organizer/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_organizer_index') }}"><i class="fas fa-hand-point-right"></i> <span>Organizers</span></a></li>
 
         </ul>
     </aside>

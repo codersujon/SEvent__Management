@@ -15,6 +15,7 @@ use App\Models\HomeWelcome;
 use App\Models\HomeBanner;
 use App\Models\SponsorCategory;
 use App\Models\Sponsor;
+use App\Models\Organiser;
 
 class FrontController extends Controller
 {
@@ -311,6 +312,25 @@ class FrontController extends Controller
             return redirect()->route('sponsors');
         }
         return view('front.sponsor', compact('sponsor'));
+    }
+
+    /**
+     * Organizers
+     */
+    public function organizers(){
+        $organizers = Organiser::paginate(20);
+        return view('front.organizers', compact('organizers'));
+    }
+
+     /**
+     * Organizer
+     */
+    public function organizer($slug){
+        $organizer = Organiser::where('slug', $slug)->first();
+        if(!$organizer){
+            return redirect()->route('organizers')->with('error', "Invalid url");
+        }
+        return view('front.organizer', compact('organizer'));
     }
     
 }
