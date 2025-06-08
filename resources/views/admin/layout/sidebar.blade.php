@@ -50,6 +50,8 @@
 
             <li class="{{ Request::is('admin/accommodation/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_accommodation_index') }}"><i class="fas fa-hand-point-right"></i> <span>Accommodations</span></a></li>
 
+             <li class="{{ Request::is('admin/photo-gallery/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_photo_gallery_index') }}"><i class="fas fa-hand-point-right"></i> <span>Photo Gallery</span></a></li>
+
         </ul>
     </aside>
 </div>

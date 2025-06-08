@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\AdminSponsorCategoryController;
 use App\Http\Controllers\Admin\AdminSponsorController;
 use App\Http\Controllers\Admin\AdminOrganizerController;
 use App\Http\Controllers\Admin\AdminAccommodationController;
+use App\Http\Controllers\Admin\AdminPhotoController;
 
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -127,6 +128,14 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/accommodation/edit/{id}', [AdminAccommodationController::class, 'edit'])->name('admin_accommodation_edit');
     Route::post('/accommodation/update/{id}', [AdminAccommodationController::class, 'update'])->name('admin_accommodation_update');
     Route::get('/accommodation/delete/{id}', [AdminAccommodationController::class, 'destroy'])->name('admin_accommodation_delete');
+
+    # Photo Gallery
+    Route::get('/photo-gallery/index', [AdminPhotoController::class, 'index'])->name('admin_photo_gallery_index');
+    Route::get('/photo-gallery/create', [AdminPhotoController::class, 'create'])->name('admin_photo_gallery_create');
+    Route::post('/photo-gallery/store', [AdminPhotoController::class, 'store'])->name('admin_photo_gallery_store');
+    Route::get('/photo-gallery/edit/{id}', [AdminPhotoController::class, 'edit'])->name('admin_photo_gallery_edit');
+    Route::post('/photo-gallery/update/{id}', [AdminPhotoController::class, 'update'])->name('admin_photo_gallery_update');
+    Route::get('/photo-gallery/delete/{id}', [AdminPhotoController::class, 'destroy'])->name('admin_photo_gallery_delete');
 
 });
 
