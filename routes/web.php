@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\AdminSpeakerScheduleController;
 use App\Http\Controllers\Admin\AdminSponsorCategoryController;
 use App\Http\Controllers\Admin\AdminSponsorController;
 use App\Http\Controllers\Admin\AdminOrganizerController;
+use App\Http\Controllers\Admin\AdminAccommodationController;
 
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -116,6 +117,14 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/organizer/edit/{id}', [AdminOrganizerController::class, 'edit'])->name('admin_organizer_edit');
     Route::post('/organizer/update/{id}', [AdminOrganizerController::class, 'update'])->name('admin_organizer_update');
     Route::get('/organizer/delete/{id}', [AdminOrganizerController::class, 'destroy'])->name('admin_organizer_delete');
+
+    # Accommodation
+    Route::get('/accommodation/index', [AdminAccommodationController::class, 'index'])->name('admin_accommodation_index');
+    Route::get('/accommodation/create', [AdminAccommodationController::class, 'create'])->name('admin_accommodation_create');
+    Route::post('/accommodation/store', [AdminAccommodationController::class, 'store'])->name('admin_accommodation_store');
+    Route::get('/accommodation/edit/{id}', [AdminAccommodationController::class, 'edit'])->name('admin_accommodation_edit');
+    Route::post('/accommodation/update/{id}', [AdminAccommodationController::class, 'update'])->name('admin_accommodation_update');
+    Route::get('/accommodation/delete/{id}', [AdminAccommodationController::class, 'destroy'])->name('admin_accommodation_delete');
 
 });
 
