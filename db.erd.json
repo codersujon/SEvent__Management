@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -791.2331,
-    "scrollLeft": -800,
-    "zoomLevel": 0.73,
+    "scrollTop": -1277.7902,
+    "scrollLeft": -770.0114,
+    "zoomLevel": 0.82,
     "show": 431,
     "database": 4,
     "databaseName": "",
@@ -36,7 +36,8 @@
       "s7eItK9H7Df7CxfMMAvVc",
       "8ihbOgoJ8u9pei3PAiJQp",
       "WelUuiNWLeQ85n6eBc7e9",
-      "G6IyH4xNaAU-CVxlRxDW3"
+      "G6IyH4xNaAU-CVxlRxDW3",
+      "hIxc0U8p8hrYs8-my7vQW"
     ],
     "relationshipIds": [
       "iDD4h1gHNA4Ilu16IIhGM"
@@ -291,6 +292,43 @@
         "meta": {
           "updateAt": 1749188547655,
           "createAt": 1749188019678
+        }
+      },
+      "hIxc0U8p8hrYs8-my7vQW": {
+        "id": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "Accomodation",
+        "comment": "",
+        "columnIds": [
+          "xzJA0ALdkZtONeYZx2sch",
+          "bKAsM5iPNHimlBylpu0Kn",
+          "dwFCYwGsgjP95dnN-m5-j",
+          "eeKw3sN1USrD3gZSWInV0",
+          "jOKYuOd6qJAUM6zmjChX4",
+          "r-nUdaGSvomZQfParwN1q",
+          "78kfR_mMMhJ_CMqrKtGUk",
+          "byXJ0OoYW-oT4VARvDjd3"
+        ],
+        "seqColumnIds": [
+          "xzJA0ALdkZtONeYZx2sch",
+          "bKAsM5iPNHimlBylpu0Kn",
+          "dwFCYwGsgjP95dnN-m5-j",
+          "eeKw3sN1USrD3gZSWInV0",
+          "jOKYuOd6qJAUM6zmjChX4",
+          "r-nUdaGSvomZQfParwN1q",
+          "78kfR_mMMhJ_CMqrKtGUk",
+          "byXJ0OoYW-oT4VARvDjd3"
+        ],
+        "ui": {
+          "x": 964.0797,
+          "y": 1385.0469,
+          "zIndex": 8,
+          "widthName": 79,
+          "widthComment": 60,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1749380001715,
+          "createAt": 1749378684232
         }
       }
     },
@@ -1513,6 +1551,166 @@
         "meta": {
           "updateAt": 1749188544018,
           "createAt": 1749188536778
+        }
+      },
+      "xzJA0ALdkZtONeYZx2sch": {
+        "id": "xzJA0ALdkZtONeYZx2sch",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "id",
+        "comment": "",
+        "dataType": "INT",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749378725709,
+          "createAt": 1749378691146
+        }
+      },
+      "bKAsM5iPNHimlBylpu0Kn": {
+        "id": "bKAsM5iPNHimlBylpu0Kn",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "name",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749378774933,
+          "createAt": 1749378727357
+        }
+      },
+      "dwFCYwGsgjP95dnN-m5-j": {
+        "id": "dwFCYwGsgjP95dnN-m5-j",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "description",
+        "comment": "",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 61,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749378835911,
+          "createAt": 1749378776037
+        }
+      },
+      "eeKw3sN1USrD3gZSWInV0": {
+        "id": "eeKw3sN1USrD3gZSWInV0",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "photo",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 8,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749378814429,
+          "createAt": 1749378784141
+        }
+      },
+      "r-nUdaGSvomZQfParwN1q": {
+        "id": "r-nUdaGSvomZQfParwN1q",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "email",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749380007781,
+          "createAt": 1749378807789
+        }
+      },
+      "78kfR_mMMhJ_CMqrKtGUk": {
+        "id": "78kfR_mMMhJ_CMqrKtGUk",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "phone",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749380008373,
+          "createAt": 1749378813141
+        }
+      },
+      "byXJ0OoYW-oT4VARvDjd3": {
+        "id": "byXJ0OoYW-oT4VARvDjd3",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "website",
+        "comment": "",
+        "dataType": "VARCHAR",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749378856820,
+          "createAt": 1749378830549
+        }
+      },
+      "jOKYuOd6qJAUM6zmjChX4": {
+        "id": "jOKYuOd6qJAUM6zmjChX4",
+        "tableId": "hIxc0U8p8hrYs8-my7vQW",
+        "name": "address",
+        "comment": "",
+        "dataType": "TEXT",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1749379999638,
+          "createAt": 1749379991134
         }
       }
     },

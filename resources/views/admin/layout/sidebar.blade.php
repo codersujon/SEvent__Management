@@ -45,6 +45,8 @@
 
             <li class="{{ Request::is('admin/organizer/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_organizer_index') }}"><i class="fas fa-hand-point-right"></i> <span>Organizers</span></a></li>
 
+            <li class="{{ Request::is('admin/accommodation/*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_accommodation_index') }}"><i class="fas fa-hand-point-right"></i> <span>Accommodations</span></a></li>
+
         </ul>
     </aside>
 </div>
