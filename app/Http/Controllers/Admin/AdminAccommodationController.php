@@ -54,4 +54,60 @@ class AdminAccommodationController extends Controller
         return redirect()->route('admin_accommodation_index')->with('success', 'Accommodation created successfully!');
     }
 
+    /**
+     * Edit
+     */
+    public function edit($id)
+    {
+        $accommodation = Accommodation::where('id', $id)->first();
+        return view('admin.accommodation.edit', compact('accommodation'));
+    }
+
+    /**
+     * Update
+     */
+    public function update(Request $request, $id)
+    {
+        $accommodation = Accommodation::where('id', $id)->first();
+
+        # VALIDATION
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        if($request->photo){
+            $request->validate([
+                'photo' => ['image', 'mimes: jpg,jpeg,png,gif', 'max:2024'],
+            ]);
+            $final_name = 'accommodation_'.time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('uploads'), $final_name);
+            @unlink(public_path('uploads/'.$accommodation->photo));
+            $accommodation->photo = $final_name;
+        }
+
+        $accommodation->name = $request->name;
+        $accommodation->description = $request->description;
+        $accommodation->email  = $request->email;
+        $accommodation->phone  = $request->phone;
+        $accommodation->address  = $request->address;
+        $accommodation->website  = $request->website;
+        $accommodation->update();
+
+        return redirect()->route('admin_accommodation_index')->with('success', 'Accommodation updated successfully!');
+    }
+
+
+    /**
+     * Destroy
+     */
+    public function destroy($id)
+    {
+        $accommodation = Accommodation::where('id', $id)->first();
+        @unlink(public_path('uploads/'.$accommodation->photo));
+        $accommodation->delete();
+
+        return redirect()->route('admin_accommodation_index')->with('success', 'Accommodation deleted successfully!');
+    }
+
 }

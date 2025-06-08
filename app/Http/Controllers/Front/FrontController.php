@@ -16,6 +16,7 @@ use App\Models\HomeBanner;
 use App\Models\SponsorCategory;
 use App\Models\Sponsor;
 use App\Models\Organiser;
+use App\Models\Accommodation;
 
 class FrontController extends Controller
 {
@@ -332,5 +333,13 @@ class FrontController extends Controller
         }
         return view('front.organizer', compact('organizer'));
     }
+
     
+     /**
+     * Accommodations
+     */
+    public function accommodations(){
+        $accommodations = Accommodation::paginate(4);
+        return view('front.accommodations', compact('accommodations'));
+    }
 }

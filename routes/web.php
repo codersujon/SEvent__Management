@@ -28,6 +28,8 @@ Route::get('/sponsors', [FrontController::class, 'sponsors'])->name('sponsors');
 Route::get('/sponsor/{slug}', [FrontController::class, 'sponsor'])->name('sponsor');
 Route::get('/organizers', [FrontController::class, 'organizers'])->name('organizers');
 Route::get('/organizer/{slug}', [FrontController::class, 'organizer'])->name('organizer');
+Route::get('/accommodations', [FrontController::class, 'accommodations'])->name('accommodations');
+
 
 
 # USER LOGIN & REGISTRATION
