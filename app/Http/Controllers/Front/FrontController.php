@@ -20,6 +20,7 @@ use App\Models\Accommodation;
 use App\Models\PhotoGallery;
 use App\Models\VideoGallery;
 use App\Models\Faq;
+use App\Models\Testimonial;
 
 class FrontController extends Controller
 {
@@ -368,5 +369,13 @@ class FrontController extends Controller
     public function faqs(){
         $faqs = Faq::paginate(6);
         return view('front.faqs', compact('faqs'));
+    }
+
+    /**
+     * Testimonials
+     */
+    public function testimonial(){
+        $testimonials = Testimonial::get();
+        return view('front.testimonial', compact('testimonials'));
     }
 }
