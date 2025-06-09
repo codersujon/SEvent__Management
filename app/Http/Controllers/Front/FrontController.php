@@ -19,6 +19,7 @@ use App\Models\Organiser;
 use App\Models\Accommodation;
 use App\Models\PhotoGallery;
 use App\Models\VideoGallery;
+use App\Models\Faq;
 
 class FrontController extends Controller
 {
@@ -359,5 +360,13 @@ class FrontController extends Controller
     public function video_gallery(){
         $video_galleries = VideoGallery::paginate(6);
         return view('front.video_gallery', compact('video_galleries'));
+    }
+
+     /**
+     * FAQ
+     */
+    public function faqs(){
+        $faqs = Faq::paginate(6);
+        return view('front.faqs', compact('faqs'));
     }
 }

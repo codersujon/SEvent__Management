@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\AdminOrganizerController;
 use App\Http\Controllers\Admin\AdminAccommodationController;
 use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminVideoGalleryController;
+use App\Http\Controllers\Admin\AdminFaqController;
 
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -33,6 +34,7 @@ Route::get('/organizer/{slug}', [FrontController::class, 'organizer'])->name('or
 Route::get('/accommodations', [FrontController::class, 'accommodations'])->name('accommodations');
 Route::get('/photo-gallery', [FrontController::class, 'photo_gallery'])->name('photo_gallery');
 Route::get('/video-gallery', [FrontController::class, 'video_gallery'])->name('video_gallery');
+Route::get('/faqs', [FrontController::class, 'faqs'])->name('faqs');
 
 
 
@@ -147,6 +149,14 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/video-gallery/edit/{id}', [AdminVideoGalleryController::class, 'edit'])->name('admin_video_gallery_edit');
     Route::post('/video-gallery/update/{id}', [AdminVideoGalleryController::class, 'update'])->name('admin_video_gallery_update');
     Route::get('/video-gallery/delete/{id}', [AdminVideoGalleryController::class, 'destroy'])->name('admin_video_gallery_delete');
+
+    # FAQ
+    Route::get('/faq/index', [AdminFaqController::class, 'index'])->name('admin_faq_index');
+    Route::get('/faq/create', [AdminFaqController::class, 'create'])->name('admin_faq_create');
+    Route::post('/faq/store', [AdminFaqController::class, 'store'])->name('admin_faq_store');
+    Route::get('/faq/edit/{id}', [AdminFaqController::class, 'edit'])->name('admin_faq_edit');
+    Route::post('/faq/update/{id}', [AdminFaqController::class, 'update'])->name('admin_faq_update');
+    Route::get('/faq/delete/{id}', [AdminFaqController::class, 'destroy'])->name('admin_faq_delete');
 });
 
 
