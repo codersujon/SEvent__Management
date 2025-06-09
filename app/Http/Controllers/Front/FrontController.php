@@ -21,6 +21,7 @@ use App\Models\PhotoGallery;
 use App\Models\VideoGallery;
 use App\Models\Faq;
 use App\Models\Testimonial;
+use App\Models\Post;
 
 class FrontController extends Controller
 {
@@ -377,5 +378,24 @@ class FrontController extends Controller
     public function testimonial(){
         $testimonials = Testimonial::get();
         return view('front.testimonial', compact('testimonials'));
+    }
+
+    /**
+     * Blog
+     */
+    public function blog(){
+        $posts = Post::paginate(6);
+        return view('front.blog', compact('posts'));
+    }
+
+    /**
+     * Post
+     */
+    public function post($slug){
+        $post = Post::where('slug', $slug)->first();
+        if(!$post){
+            return redirect()->route('blog')->with('error', "Invalid url");
+        }
+        return view('front.post', compact('post'));
     }
 }

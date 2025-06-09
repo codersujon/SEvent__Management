@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\AdminPhotoController;
 use App\Http\Controllers\Admin\AdminVideoGalleryController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
+use App\Http\Controllers\Admin\AdminPostController;
 
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -37,6 +38,8 @@ Route::get('/photo-gallery', [FrontController::class, 'photo_gallery'])->name('p
 Route::get('/video-gallery', [FrontController::class, 'video_gallery'])->name('video_gallery');
 Route::get('/faqs', [FrontController::class, 'faqs'])->name('faqs');
 Route::get('/testimonial', [FrontController::class, 'testimonial'])->name('testimonial');
+Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+Route::get('/post/{slug}', [FrontController::class, 'post'])->name('post');
 
 
 
@@ -167,6 +170,14 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/testimonial/edit/{id}', [AdminTestimonialController::class, 'edit'])->name('admin_testimonial_edit');
     Route::post('/testimonial/update/{id}', [AdminTestimonialController::class, 'update'])->name('admin_testimonial_update');
     Route::get('/testimonial/delete/{id}', [AdminTestimonialController::class, 'destroy'])->name('admin_testimonial_delete');
+
+    # Blog Post
+    Route::get('/post/index', [AdminPostController::class, 'index'])->name('admin_post_index');
+    Route::get('/post/create', [AdminPostController::class, 'create'])->name('admin_post_create');
+    Route::post('/post/store', [AdminPostController::class, 'store'])->name('admin_post_store');
+    Route::get('/post/edit/{id}', [AdminPostController::class, 'edit'])->name('admin_post_edit');
+    Route::post('/post/update/{id}', [AdminPostController::class, 'update'])->name('admin_post_update');
+    Route::get('/post/delete/{id}', [AdminPostController::class, 'destroy'])->name('admin_post_delete');
 });
 
 
