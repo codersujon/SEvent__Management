@@ -36,6 +36,11 @@
                     </div>
                 @endforeach
             </div>
+            <div class="col-md-12">
+                <div class="d-flex justify-content-end">
+                    {{ $speakers->links() }}
+                </div>
+            </div>
         </div>
     </div>
 

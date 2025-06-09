@@ -273,7 +273,7 @@ class FrontController extends Controller
      * Speakers
      */
     public function speakers(){
-        $speakers = Speaker::paginate(20);
+        $speakers = Speaker::paginate(4);
         return view('front.speakers', compact('speakers'));
     }
 
