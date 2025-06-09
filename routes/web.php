@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\AdminSponsorController;
 use App\Http\Controllers\Admin\AdminOrganizerController;
 use App\Http\Controllers\Admin\AdminAccommodationController;
 use App\Http\Controllers\Admin\AdminPhotoController;
+use App\Http\Controllers\Admin\AdminVideoGalleryController;
 
 ## FRONTEND
 Route::get('/', [FrontController::class, 'home'])->name('home');
@@ -31,6 +32,7 @@ Route::get('/organizers', [FrontController::class, 'organizers'])->name('organiz
 Route::get('/organizer/{slug}', [FrontController::class, 'organizer'])->name('organizer');
 Route::get('/accommodations', [FrontController::class, 'accommodations'])->name('accommodations');
 Route::get('/photo-gallery', [FrontController::class, 'photo_gallery'])->name('photo_gallery');
+Route::get('/video-gallery', [FrontController::class, 'video_gallery'])->name('video_gallery');
 
 
 
@@ -138,6 +140,13 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::post('/photo-gallery/update/{id}', [AdminPhotoController::class, 'update'])->name('admin_photo_gallery_update');
     Route::get('/photo-gallery/delete/{id}', [AdminPhotoController::class, 'destroy'])->name('admin_photo_gallery_delete');
 
+    # Video Gallery
+    Route::get('/video-gallery/index', [AdminVideoGalleryController::class, 'index'])->name('admin_video_gallery_index');
+    Route::get('/video-gallery/create', [AdminVideoGalleryController::class, 'create'])->name('admin_video_gallery_create');
+    Route::post('/video-gallery/store', [AdminVideoGalleryController::class, 'store'])->name('admin_video_gallery_store');
+    Route::get('/video-gallery/edit/{id}', [AdminVideoGalleryController::class, 'edit'])->name('admin_video_gallery_edit');
+    Route::post('/video-gallery/update/{id}', [AdminVideoGalleryController::class, 'update'])->name('admin_video_gallery_update');
+    Route::get('/video-gallery/delete/{id}', [AdminVideoGalleryController::class, 'destroy'])->name('admin_video_gallery_delete');
 });
 
 
