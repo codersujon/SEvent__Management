@@ -323,7 +323,7 @@ class FrontController extends Controller
      * Organizers
      */
     public function organizers(){
-        $organizers = Organiser::paginate(20);
+        $organizers = Organiser::paginate(4);
         return view('front.organizers', compact('organizers'));
     }
 

@@ -35,6 +35,12 @@
                         </div>
                     </div>
                 @endforeach
+                
+            </div>
+            <div class="col-md-12">
+                <div class="d-flex justify-content-end">
+                    {{ $organizers->links() }}
+                </div>
             </div>
         </div>
     </div>
