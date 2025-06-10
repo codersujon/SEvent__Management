@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePackageRequest;
 use Illuminate\Http\Request;
 use App\Models\Package;
 use Illuminate\validation\Rule;
@@ -30,20 +31,16 @@ class AdminPackageController extends Controller
     /**
      * Store 
      */
-    public function store(Request $request)
+    public function store(StorePackageRequest $request)
     {
+        # For Insert Using Eloquent is Best Practice
+        $package = Package::create($request->validated());
 
-        # VALIDATION
-        $request->validate([
-            'video' => ['required'],
-        ]);
-
-        $video_gallery = new VideoGallery();
-        $video_gallery->caption = $request->caption;
-        $video_gallery->video =  $request->video;
-        $video_gallery->save();
-
-        return redirect()->route('admin_video_gallery_index')->with('success', 'Video created successfully!');
+        return redirect()
+                ->route('admin_package_index')
+                ->with(
+                    $package ?  'success' : 'error', 
+                    $package ? 'Package created successfully!' : 'Package creation failed!');
     }
 
     /**
@@ -51,27 +48,19 @@ class AdminPackageController extends Controller
      */
     public function edit($id)
     {
-        $video_gallery = VideoGallery::where('id', $id)->first();
-        return view('admin.video_gallery.edit', compact('video_gallery'));
+        $package = Package::findOrFail($id);
+        return view('admin.package.edit', compact('package'));
     }
 
     /**
      * Update
      */
-    public function update(Request $request, $id)
+    public function update(StorePackageRequest $request, $id)
     {
-        $video_gallery = VideoGallery::where('id', $id)->first();
+        $package = Package::findOrFail($id);
+        $package->update($request->validated());
 
-        # VALIDATION
-        $request->validate([
-            'video' => ['required'],
-        ]);
-
-        $video_gallery->caption = $request->caption;
-        $video_gallery->video =  $request->video;
-        $video_gallery->update();
-
-        return redirect()->route('admin_video_gallery_index')->with('success', 'Video updated successfully!');
+        return to_route('admin_package_index')->with('success', 'Package updated successfully!');
     }
 
     /**
@@ -79,9 +68,9 @@ class AdminPackageController extends Controller
      */
     public function destroy($id)
     {
-        $video_gallery = VideoGallery::where('id', $id)->first();
-        $video_gallery->delete();
+        $package = Package::findOrFail($id);
+        $package->delete();
 
-        return redirect()->route('admin_video_gallery_index')->with('success', 'Video deleted successfully!');
+        return to_route('admin_package_index')->with('success', 'Package deleted successfully!');
     }
 }
