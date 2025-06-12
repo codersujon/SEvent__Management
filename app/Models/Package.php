@@ -14,4 +14,9 @@ class Package extends Model
         'maximum_tickets',
         'item_order',
     ];
+
+     public function facilities()
+    {
+        return $this->hasMany(PackageFacility::class);
+    }
 }

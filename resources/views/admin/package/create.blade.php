@@ -53,15 +53,17 @@
                                 <button class="btn btn-sm btn-warning mb-2" type="button" id="addRowButton">Add Row</button>
                                 <div class="item mb-2">
                                     <div class="row d-flex align-items-center">
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" name="facilities[]" placeholder="Facility Name">
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="facility[]" placeholder="Facility Name">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <select name="status[]" class="form-select">
-                                                <option value="" disabled selected>Facility Status</option>
                                                 <option value="1">Yes</option>
                                                 <option value="0">No</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" name="order[]" placeholder="Order">
                                         </div>
                                         <div class="col-md-2">
                                             <button type="button" class="btn btn-sm btn-danger del"><i class="fas fa-trash"></i></button>
@@ -92,15 +94,17 @@
         $('#addRowButton').click(function(){
             var newRow = $(`<div class="item mb-2">
                                 <div class="row d-flex align-items-center">
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name="facilities[]" placeholder="Facility Name">
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="facility[]" placeholder="Facility Name">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <select name="status[]" class="form-select">
-                                            <option value="" disabled selected>Facility Status</option>
                                             <option value="1">Yes</option>
                                             <option value="0">No</option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="order[]" placeholder=" Order">
                                     </div>
                                     <div class="col-md-2">
                                         <button type="button" class="btn btn-sm btn-danger del"><i class="fas fa-trash"></i></button>

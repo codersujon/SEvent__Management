@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePackageRequest;
 use Illuminate\Http\Request;
 use App\Models\Package;
+use App\Models\PackageFacility;
 use Illuminate\validation\Rule;
 use Illuminate\Support\Facades\DB;
 
@@ -33,8 +34,30 @@ class AdminPackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
+
+        foreach($request->facility as $value){
+           $arr_facility[] = $value;
+        }
+
+        foreach($request->status as $value){
+           $arr_status[] = $value;
+        }
+
+        foreach($request->order as $value){
+           $arr_order[] = $value;
+        }
+
         # For Insert Using Eloquent is Best Practice
         $package = Package::create($request->validated());
+
+        for($i=0; $i<count($arr_facility); $i++){
+           $package_facility =  new PackageFacility();
+           $package_facility->package_id = $package->id;
+           $package_facility->name = $arr_facility[$i];
+           $package_facility->status = $arr_status[$i];
+           $package_facility->item_order = $arr_order[$i];
+           $package_facility->save();
+        }
 
         return redirect()
                 ->route('admin_package_index')
