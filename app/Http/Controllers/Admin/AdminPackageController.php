@@ -17,7 +17,11 @@ class AdminPackageController extends Controller
      */
     public function index()
     {
-        $packages = DB::table('packages')->orderBy('item_order', 'asc')->get();
+        $packages = Package::with(
+            ['facilities' => function($query){
+                $query->orderBy('item_order', 'asc');
+            }
+        ])->orderBy('item_order', 'asc')->get();
         return view('admin.package.index', compact('packages'));
     }
 
