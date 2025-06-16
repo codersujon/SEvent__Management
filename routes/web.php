@@ -187,6 +187,13 @@ Route::middleware('admin')->prefix('admin')->group(function(){
     Route::get('/package/edit/{id}', [AdminPackageController::class, 'edit'])->name('admin_package_edit');
     Route::post('/package/update/{id}', [AdminPackageController::class, 'update'])->name('admin_package_update');
     Route::get('/package/delete/{id}', [AdminPackageController::class, 'destroy'])->name('admin_package_delete');
+
+    # Package Facility 
+    Route::get('/package/facilities/delete/{id}', [AdminPackageController::class, 'facility_delete'])->name('admin_package_facility_delete');
+    
+    Route::get('/package/facilities/edit/{id}', [AdminPackageController::class, 'facility_edit'])->name('admin_package_facility_edit');
+
+    Route::post('/package/facilities/update/{id}', [AdminPackageController::class, 'facility_update'])->name('admin_package_facility_update');
 });
 
 
